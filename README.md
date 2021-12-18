@@ -1,70 +1,61 @@
-# rename-me README
+## Rename me
 
-This is the README for your extension "rename-me". After writing up a brief description, we recommend including the following sections.
+Rename me is a VSCode extension to rename your project files using VSCode Command Palette.
 
-## Features
+## Installation
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+```bash
+Not published yet
+```
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+`MacOS`: <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>P</kbd>
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+`Linux & Windows`: <kbd>Ctrl</kbd> + <kbd>⇧</kbd> + <kbd>P</kbd>
 
-## Requirements
+## Screenshots
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![App Screenshot](https://res.cloudinary.com/di8rsna4o/image/upload/v1639851358/Screen_Shot_2021-12-18_at_6.56.22_PM_l2af5o.png)
 
-## Extension Settings
+![App Screenshot](https://res.cloudinary.com/di8rsna4o/image/upload/v1639851371/Screen_Shot_2021-12-18_at_6.56.35_PM_m2fbew.png)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Run Locally
 
-For example:
+Clone the project
 
-This extension contributes the following settings:
+```bash
+  git clone https://github.com/FxOmar/Rename-Me.git
+```
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Go to the project directory
 
-## Known Issues
+```bash
+  cd Rename-Me/
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Install dependencies
 
-## Release Notes
+```bash
+  npm install
+```
 
-Users appreciate release notes as you update your extension.
+To run Webpack server using Terminal:
 
-### 1.0.0
+```bash
+  npm run watch
+```
 
-Initial release of ...
+OR
 
-### 1.0.1
+Press <kbd>F5</kbd>. This will compile and run the extension in a new Extension Development Host window.
 
-Fixed issue #.
+if you make any changes to `extension.ts` file
 
-### 1.1.0
+Run Developer: Reload Window in the new window.
 
-Added features X, Y, and Z.
+Run the command `File: Rename me` again.
 
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
+## Authors
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- [@Omar Chadidi](https://github.com/FxOmar) ❤️

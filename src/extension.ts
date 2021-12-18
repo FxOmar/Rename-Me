@@ -1,30 +1,46 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+import path = require("path");
 import * as vscode from "vscode";
-const path = require("path");
+
+/**
+ *  Rename the current file
+ *
+ * @param newName
+ * @param currentFile
+ * @param currentWorkspacePath
+ */
+async function handleRenaming(
+  newName: string,
+  currentFile: path.ParsedPath
+): Promise<void> {
+  await vscode.workspace.fs.rename(
+    vscode.Uri.file(`${currentFile.dir}/${currentFile.base}`),
+    vscode.Uri.file(`${currentFile.dir}/${newName}`),
+    {
+      overwrite: false,
+    }
+  );
+}
 
 // this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
     "rename-me.rename",
     async () => {
       const editor = vscode.window.activeTextEditor;
-      const currentWorkspacePath = vscode.workspace.workspaceFolders;
 
-      if (editor && currentWorkspacePath) {
+      if (editor) {
+        const parseCurrentUri = path.parse(editor.document.uri.path);
+
         const newName = await vscode.window.showInputBox({
-          value: path.basename(editor.document.uri.path),
+          value: parseCurrentUri.base,
         });
 
-        if (newName !== path.basename(editor.document.uri.path)) {
-          await vscode.workspace.fs.rename(
-            editor.document.uri,
-            vscode.Uri.file(`${currentWorkspacePath[0].uri.path}/${newName}`),
-            {
-              overwrite: true,
-            }
-          );
+        if (newName === undefined) {
+          return;
+        }
+
+        if (newName !== parseCurrentUri.base) {
+          handleRenaming(newName, parseCurrentUri);
         }
       }
     }

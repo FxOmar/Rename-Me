@@ -18,7 +18,7 @@
     "commands": [
       {
         "command": "rename-me.rename",
-        "title": "Rename current file"
+        "title": "File: Rename me"
       }
     ]
   },

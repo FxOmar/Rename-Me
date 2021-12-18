@@ -1,4 +1,6 @@
 import path = require("path");
+import { existsSync } from "fs";
+
 import * as vscode from "vscode";
 
 /**
@@ -40,6 +42,13 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (newName !== parseCurrentUri.base) {
+          if (existsSync(`${parseCurrentUri.dir}/${newName}`)) {
+            vscode.window.showWarningMessage(
+              "File with that name already exist! try something else"
+            );
+            return;
+          }
+
           handleRenaming(newName, parseCurrentUri);
         }
       }
